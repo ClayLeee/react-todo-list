@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playwright MCP 簡報</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/theme/sky.css">
+
+    <!-- Highlight.js CSS for code highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/highlight/monokai.css">
+
+    <!-- Google Fonts - 僅載入 Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- 自訂樣式 -->
+    <style>
+        /* 整體字體設定 - 中文使用微軟正黑體，英文使用 Arial */
+        .reveal {
+            font-family: Arial, '微軟正黑體', sans-serif;
+        }
+
+        /* 程式碼區塊字體設定 - 使用 Fira Code */
+        .reveal pre,
+        .reveal code {
+            font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            /* line-height: 1.2; */
+            font-variant-ligatures: common-ligatures;
+        }
+
+        /* 確保行內程式碼也使用相同字體 */
+        .reveal code:not(pre code) {
+            font-family: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-variant-ligatures: common-ligatures;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Title Slide -->
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## 工程師視角的 Playwright
+                        #### AI 自動生成前端測試腳本的實戰指南
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## 大綱
+                        - 什麼是 Playwright MCP？
+                        - 配置流程概述
+                        - 測試檔案和報告
+                        - 測試網站簡介
+                        - 總結
+                    </script>
+                </section>
+            </section>
+
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ### 爲什麼要使用 Playwright?
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        - 開啓瀏覽器然後導航到指定 URL
+                        - 探索網站功能，告訴我網站上面有什麼功能
+                        - 生成測試檔案然後修正錯誤
+                        - 執行測試
+                        - 生成報告
+                    </script>
+                </section>
+            </section>
+
+            <!-- Playwright MCP 介紹 -->
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## 什麼是 Playwright MCP？
+
+                        A **Model Context Protocol (MCP)** server that provides browser automation capabilities using Playwright.
+
+                        這個伺服器讓 LLM 能夠透過結構化的無障礙快照與網頁互動，無需使用截圖或視覺模型。
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Playwright MCP
+
+                        - **快速且輕量**
+                          - 使用 Playwright 的無障礙樹狀結構，而非像素輸入
+
+                        - **LLM 友善**
+                          - 不需要視覺模型，純粹基於結構化資料運作
+
+                        - **確定性工具應用**
+                          - 避免基於截圖方法常見的模糊性
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ## 系統需求
+
+                        - **Node.js 18** 或更新版本
+
+                        - **支援的 MCP 客戶端**
+                          - **Claude Code**
+                          - **Codex**
+                          - **Cursor**
+                          - **Gemini CLI**
+                          - **Goose**
+                          - **VS Code**
+                          - **Windsurf**
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Playwright MCP 可用工具
+
+                        ![Playwright MCP Functions](images/playwright-functions.jpg)
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ### 瀏覽器控制
+
+                        - `browser_navigate` - 導航到指定 URL
+                        - `browser_close` - 關閉瀏覽器
+                        - `browser_resize` - 調整瀏覽器視窗大小
+                        - `browser_tabs` - 管理瀏覽器分頁
+                        - `browser_navigate_back` - 返回上一頁
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ### 頁面互動
+
+                        - `browser_click` - 點擊頁面元素
+                        - `browser_type` - 輸入文字
+                        - `browser_fill_form` - 填寫表單
+                        - `browser_select_option` - 選擇下拉選項
+                        - `browser_hover` - 滑鼠懸停
+                        - `browser_drag` - 拖放操作
+                        - `browser_press_key` - 按鍵操作
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ### 除錯與監控
+
+                        - `browser_console_messages` - 獲取控制台訊息
+                        - `browser_network_requests` - 監控網路請求
+                    </script>
+                </section>
+            </section>
+
+            <!-- Playwright MCP 配置流程 -->
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## 配置流程概述
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ### 步驟 1: 配置 Playwright MCP Server
+
+                        [Playwright MCP](https://github.com/microsoft/playwright-mcp)
+
+                        ```json[|3-8]
+                        {
+                          "mcpServers": {
+                            "playwright": {
+                              "command": "npx",
+                              "args": [
+                                "@playwright/mcp@latest"
+                              ]
+                            }
+                          }
+                        }
+                        ```
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ### 步驟 2: 創建 Prompt
+
+                        創建 `playwright-manual-test-report.md` 文件
+
+                        1. **探索網站** - 使用 Playwright MCP 導航並分析功能
+
+                        2. **生成測試** - 生成探索報告和測試檔案並驗證
+
+                        3. **產生結果** - 產生最終的測試報告
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ### 步驟 3: 安裝依賴與配置
+
+                        ```bash
+                        # 安裝 Playwright 測試框架，生成測試檔案需要
+                        pnpm add -D @playwright/test
+
+                        # 下載 playwright 需要的瀏覽器，執行測試需要
+                        pnpm exec playwright install chromium
+                        ```
+                    </script>
+                </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ### 步驟 4: 創建 `playwright.config.ts` 配置文件
+
+                        ```typescript[|1 | 4 | 10-16 | 17-26]
+                        import { defineConfig, devices } from '@playwright/test';
+
+                        export default defineConfig({
+                            testDir: './tests',
+                            fullyParallel: true,
+                            forbidOnly: !!process.env.CI,
+                            retries: process.env.CI ? 2 : 0,
+                            workers: process.env.CI ? 1 : undefined,
+                            reporter: 'html',
+                            use: {
+                                baseURL: 'http://localhost:5173',
+                                trace: 'on-first-retry',
+                                screenshot: 'only-on-failure',
+                                video: 'retain-on-failure',
+                                viewport: { width: 1280, height: 720 },
+                            },
+                            projects: [
+                                {
+                                    name: 'chromium',
+                                    use: { ...devices['Desktop Chrome'] },
+                                },
+                                {
+                                    name: 'firefox',
+                                    use: { ...devices['Desktop Firefox'] },
+                                },
+                            ],
+                        });
+                        ```
+                    </script>
+                </section>
+            </section>
+
+            <!-- 測試網站簡介 -->
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## 測試網站簡介
+
+                        ### SauceDemo - Swag Labs
+
+                        一個電商示範網站
+
+                        [https://www.saucedemo.com/](https://www.saucedemo.com/)
+                    </script>
+                </section>
+            </section>
+
+            <!-- 結尾 -->
+            <section>
+              <section data-markdown>
+                <script type="text/template">
+                    ### 總結
+
+                    #### Playwright MCP 的優勢
+                    - 讓 AI 自動生成測試檔案和執行測試
+                    - 避免 LLM 呼叫不存在的 method
+                    - 本地可控，可 Debug
+                </script>
+            </section>
+              <section data-markdown>
+                <script type="text/template">
+                  #### 可能的問題
+                    - 測試檔案中可能會有一些不易修正的錯誤
+                    - 能夠取代複雜的流程測試？
+                    - Prompt 不精確的話可能執行不預期的測試步驟
+                </script>
+              </section>
+            </section>
+
+            <section>
+              <section data-markdown>
+                <script type="text/template">
+                  ### 謝謝大家
+                </script>
+              </section>
+            </section>
+        </div>
+    </div>
+
+    <!-- Reveal.js JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/notes/notes.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide',
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        });
+    </script>
+</body>
+</html>
