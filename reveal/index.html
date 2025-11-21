@@ -7,7 +7,7 @@
 
     <!-- Reveal.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/theme/sky.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/theme/black.css">
 
     <!-- Highlight.js CSS for code highlighting -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/plugin/highlight/monokai.css">
@@ -50,9 +50,17 @@
                         #### AI 自動生成前端測試腳本的實戰指南
                     </script>
                 </section>
+                <section>
+                    <img src="images/me.jpg" alt="Me" style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto;">
+                    <h3 style="margin-top: 50px;">李奕儇 / Clay</h3>
+                    <p>前端工程師</p>
+                    GitHub: <a href="https://github.com/ClayLeee">https://github.com/ClayLeee</a>
+                  </p>
+                  </section>
                 <section data-markdown>
                     <script type="text/template">
                         ## 大綱
+                        - 爲什麼要使用 Playwright?
                         - 什麼是 Playwright MCP？
                         - 配置流程概述
                         - 測試檔案和報告
@@ -65,7 +73,7 @@
             <section>
                 <section data-markdown>
                     <script type="text/template">
-                        ### 爲什麼要使用 Playwright?
+                        ## 爲什麼要使用 Playwright?
                     </script>
                 </section>
                 <section data-markdown>
@@ -133,7 +141,7 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ### 瀏覽器控制
+                        ## 瀏覽器控制
 
                         - `browser_navigate` - 導航到指定 URL
                         - `browser_close` - 關閉瀏覽器
@@ -145,7 +153,7 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ### 頁面互動
+                        ## 頁面互動
 
                         - `browser_click` - 點擊頁面元素
                         - `browser_type` - 輸入文字
@@ -159,7 +167,7 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ### 除錯與監控
+                        ## 除錯與監控
 
                         - `browser_console_messages` - 獲取控制台訊息
                         - `browser_network_requests` - 監控網路請求
@@ -280,9 +288,9 @@
             <section>
               <section data-markdown>
                 <script type="text/template">
-                    ### 總結
+                    ## 總結
 
-                    #### Playwright MCP 的優勢
+                    ### Playwright MCP 的優勢
                     - 讓 AI 自動生成測試檔案和執行測試
                     - 避免 LLM 呼叫不存在的 method
                     - 本地可控，可 Debug
@@ -290,7 +298,7 @@
             </section>
               <section data-markdown>
                 <script type="text/template">
-                  #### 可能的問題
+                  ### 可能的問題
                     - 測試檔案中可能會有一些不易修正的錯誤
                     - 能夠取代複雜的流程測試？
                     - Prompt 不精確的話可能執行不預期的測試步驟
@@ -299,10 +307,12 @@
             </section>
 
             <section>
-              <section data-markdown>
-                <script type="text/template">
-                  ### 謝謝大家
-                </script>
+              <section>
+                <img src="images/react-todo-list-app-qrcode.png" alt="QR Code" style="width: 250px; height: 250px; display: block; margin: 30px auto;">
+                <h5>saucedemo: sauce demo 網站無測試結果</h5>
+                <h5>saucedemo-test-result: sauce demo 網站有測試結果</h5>
+                <h5>local-app-test: 本地端 react todo list 網站無測試結果</h5>
+                <h5>local-app-test-result: 本地端 react todo list 網站有測試結果</h5>
               </section>
             </section>
         </div>
