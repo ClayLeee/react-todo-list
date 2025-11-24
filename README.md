@@ -1,6 +1,6 @@
 # 自動化測試流程
 
-1. 告訴你的 LLM 執行以下流程
+1. 告訴你的 Client 執行以下流程
 ```
 https://www.saucedemo.com/ 是一個模擬電商的網站，包含登入驗證、商品陳列、購物車和結帳的功能，幫我用 @.github/prompt/playwright-manual-test-report.md 描述的指引探索此網站
 ```
