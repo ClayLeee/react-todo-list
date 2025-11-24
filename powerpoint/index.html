@@ -78,9 +78,9 @@
                 </section>
                 <section data-markdown>
                     <script type="text/template">
-                        - 開啓瀏覽器然後導航到指定 URL
-                        - 探索網站內容，告訴我網站上面有什麼功能
-                        - 生成測試檔案然後修正錯誤
+                        - 開啓瀏覽器、導航到指定 URL
+                        - 探索網站內容
+                        - 生成測試檔案並修正錯誤
                         - 執行測試
                         - 生成報告
                     </script>
@@ -99,7 +99,7 @@
                     <script type="text/template">
                         ## Playwright
 
-                        - 2019 年有微軟推出的網頁自動化測試框架，同時多種主流的瀏覽器，且可跨平臺執行。
+                        - 2019 年由微軟推出的網頁自動化測試框架，支援多種主流的瀏覽器，且可跨平臺執行。
 
                         - 你在瀏覽器能做到的任何事情，它都能自動化，可以用來做測試、爬蟲、操作網站、模擬使用者。
                     </script>
@@ -144,11 +144,11 @@
                     <script type="text/template">
                         ## 瀏覽器控制
 
-                        - `browser_navigate` - 導航到指定 URL
-                        - `browser_close` - 關閉瀏覽器
-                        - `browser_resize` - 調整瀏覽器視窗大小
-                        - `browser_tabs` - 管理瀏覽器分頁
-                        - `browser_navigate_back` - 返回上一頁
+                        - `browser_navigate`: 導航到指定 URL
+                        - `browser_close`:  關閉瀏覽器
+                        - `browser_resize`: 調整瀏覽器視窗大小
+                        - `browser_tabs`: 管理瀏覽器分頁
+                        - `browser_navigate_back`: 返回上一頁
                     </script>
                 </section>
 
@@ -156,13 +156,13 @@
                     <script type="text/template">
                         ## 頁面互動
 
-                        - `browser_click` - 點擊頁面元素
-                        - `browser_type` - 輸入文字
-                        - `browser_fill_form` - 填寫表單
-                        - `browser_select_option` - 選擇下拉選項
-                        - `browser_hover` - 滑鼠懸停
-                        - `browser_drag` - 拖放操作
-                        - `browser_press_key` - 按鍵操作
+                        - `browser_click`: 點擊頁面元素
+                        - `browser_type`: 輸入文字
+                        - `browser_fill_form`: 填寫表單
+                        - `browser_select_option`: 選擇下拉選項
+                        - `browser_hover`: 滑鼠懸停
+                        - `browser_drag`: 拖放操作
+                        - `browser_press_key`: 按鍵操作
                     </script>
                 </section>
 
@@ -170,8 +170,8 @@
                     <script type="text/template">
                         ## 除錯與監控
 
-                        - `browser_console_messages` - 獲取控制台訊息
-                        - `browser_network_requests` - 監控網路請求
+                        - `browser_console_messages`: 獲取控制台訊息
+                        - `browser_network_requests`: 監控網路請求
                     </script>
                 </section>
             </section>
@@ -186,9 +186,7 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ### 步驟 1: 配置 Playwright MCP Server
-
-                        [Playwright MCP](https://github.com/microsoft/playwright-mcp)
+                        ### 步驟 1: 在 Client 上安裝 [Playwright MCP](https://github.com/microsoft/playwright-mcp) Server
 
                         ```json[|3-8]
                         {
@@ -207,21 +205,7 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ### 步驟 2: 創建 Prompt
-
-                        創建 `playwright-manual-test-report.md` 文件
-
-                        1. **探索網站** - 使用 Playwright MCP 導航並分析功能
-
-                        2. **生成測試** - 生成探索報告和測試檔案並驗證
-
-                        3. **產生結果** - 產生最終的測試報告
-                    </script>
-                </section>
-
-                <section data-markdown>
-                    <script type="text/template">
-                        ### 步驟 3: 安裝依賴
+                        ### 步驟 2: 安裝依賴
 
                         ```bash
                         # 安裝 Playwright 測試框架，生成測試檔案需要
@@ -235,9 +219,9 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ### 步驟 4: 創建 `playwright.config.ts` 配置文件
+                        ### 步驟 3: 創建 `playwright.config.ts` 配置文件
 
-                        ```typescript[|1 | 4 | 10-16 | 17-26]
+                        ```typescript[|1 | 3-27]
                         import { defineConfig, devices } from '@playwright/test';
 
                         export default defineConfig({
@@ -268,6 +252,20 @@
                         ```
                     </script>
                 </section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        ### 步驟 4: 創建 Prompt
+
+                        創建 `playwright-manual-test-report.md` 文件
+
+                        1. **探索網站** - 使用 Playwright MCP 導航並分析功能
+
+                        2. **生成測試** - 生成探索報告和測試檔案並驗證
+
+                        3. **產生結果** - 產生最終的測試報告
+                    </script>
+                </section>
             </section>
 
             <!-- 測試網站簡介 -->
@@ -276,9 +274,9 @@
                     <script type="text/template">
                         ## Demo 示範
 
-                        - 測試網站:
-                            - [SauceDemo](https://www.saucedemo.com/): 一個電商示範網站，包含登入驗證、商品陳列、購物車和結帳的功能
-                            - 本機測試 App: 一個簡單的待辦事項清單網站，包含新增、刪除、編輯待辦事項的功能
+                        - [SauceDemo](https://www.saucedemo.com/): 一個電商示範網站，包含登入驗證、商品陳列、購物車和結帳的功能
+
+                        - 本機測試 App: 一個簡單的待辦事項清單網站，包含新增、刪除、編輯待辦事項的功能
                     </script>
                 </section>
             </section>
@@ -291,7 +289,7 @@
 
                     ### Playwright MCP 的優勢
                     - 讓 AI 自動生成測試檔案和執行測試
-                    - 避免 LLM 呼叫不存在的 method
+                    - 避免 Client 呼叫不存在的 method
                     - 本地可控，可 Debug
                 </script>
             </section>
@@ -299,7 +297,7 @@
                 <script type="text/template">
                   ### 可能的問題
                     - 測試檔案中可能會有一些不易修正的錯誤
-                    - 能夠取代複雜的流程測試？
+                    - 較難取代複雜的流程測試
                     - Prompt 不精確的話可能執行不預期的測試步驟
                 </script>
               </section>
