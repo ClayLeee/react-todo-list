@@ -27,12 +27,23 @@ $ pnpm dev
 
 3. 查看測試結果 -> 在此專案根目錄下執行以下指令
 
-c. 重跑測試 / 查看結果
+a. 重跑測試
 ```
 $ pnpm exec playwright test tests/{測試檔案名稱} --reporter=html
 ex: pnpm exec playwright test tests/todo-app.spec.ts --reporter=html
 
+or
+// 已經配置在 package.json
+$ pnpm test
+
+```
+b. 查看結果
+```
 $ pnpm exec playwright show-report
+
+or
+// 已經配置在 package.json
+$ pnpm test:report
 ```
 
 ## 補充
