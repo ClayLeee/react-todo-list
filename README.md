@@ -42,4 +42,4 @@ $ pnpm test:report
 ```
 
 ## 補充
-簡報放在 ./reveal/index.html，在網頁上直接打開就能看到了
+簡報放在 ./powerpoint/index.html，在網頁上直接打開就能看到了
