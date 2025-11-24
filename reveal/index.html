@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playwright MCP 簡報</title>
+    <title>工程師視角的 Playwright</title>
 
     <!-- Reveal.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
@@ -52,20 +52,19 @@
                 </section>
                 <section data-markdown>
                     <script type="text/template">
-                    <img src="images/me.jpg" alt="Me" style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto;">
-                    <h3 style="margin-top: 50px;">李奕儇 / Clay</h3>
-                    <p>前端工程師</p>
-                    GitHub: <a href="https://github.com/ClayLeee">https://github.com/ClayLeee</a>
-                  </script>
+                        <img src="images/me.jpg" alt="Me" style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto;">
+                        <h3 style="margin-top: 50px;">李奕儇 / Clay</h3>
+                        <p>前端工程師</p>
+                        GitHub: <a href="https://github.com/ClayLeee">https://github.com/ClayLeee</a>
+                    </script>
                 </section>
                 <section data-markdown>
                     <script type="text/template">
                         ## 大綱
                         - 爲什麼要使用 Playwright?
-                        - 什麼是 Playwright MCP？
+                        - 什麼是 Playwright？
                         - 配置流程概述
-                        - 測試檔案和報告
-                        - 測試網站簡介
+                        - Demo 示範
                         - 總結
                     </script>
                 </section>
@@ -80,7 +79,7 @@
                 <section data-markdown>
                     <script type="text/template">
                         - 開啓瀏覽器然後導航到指定 URL
-                        - 探索網站功能，告訴我網站上面有什麼功能
+                        - 探索網站內容，告訴我網站上面有什麼功能
                         - 生成測試檔案然後修正錯誤
                         - 執行測試
                         - 生成報告
@@ -92,11 +91,17 @@
             <section>
                 <section data-markdown>
                     <script type="text/template">
-                        ## 什麼是 Playwright MCP？
+                        ## 什麼是 Playwright?
+                    </script>
+                </section>
 
-                        A **Model Context Protocol (MCP)** server that provides browser automation capabilities using Playwright.
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Playwright
 
-                        這個伺服器讓 LLM 能夠透過結構化的無障礙快照與網頁互動，無需使用截圖或視覺模型。
+                        - 2019 年有微軟推出的網頁自動化測試框架，同時多種主流的瀏覽器，且可跨平臺執行。
+
+                        - 你在瀏覽器能做到的任何事情，它都能自動化，可以用來做測試、爬蟲、操作網站、模擬使用者。
                     </script>
                 </section>
 
@@ -104,14 +109,9 @@
                     <script type="text/template">
                         ## Playwright MCP
 
-                        - **快速且輕量**
-                          - 使用 Playwright 的無障礙樹狀結構，而非像素輸入
+                        - A **Model Context Protocol (MCP)** server that provides browser automation capabilities using Playwright.
 
-                        - **LLM 友善**
-                          - 不需要視覺模型，純粹基於結構化資料運作
-
-                        - **確定性工具應用**
-                          - 避免基於截圖方法常見的模糊性
+                        - 這個伺服器讓 LLM 能夠透過結構化的無障礙快照與網頁互動，無需使用截圖或視覺模型。
                     </script>
                 </section>
 
@@ -221,7 +221,7 @@
 
                 <section data-markdown>
                     <script type="text/template">
-                        ### 步驟 3: 安裝依賴與配置
+                        ### 步驟 3: 安裝依賴
 
                         ```bash
                         # 安裝 Playwright 測試框架，生成測試檔案需要
@@ -274,13 +274,11 @@
             <section>
                 <section data-markdown>
                     <script type="text/template">
-                        ## 測試網站簡介
+                        ## Demo 示範
 
-                        ### SauceDemo - Swag Labs
-
-                        一個電商示範網站
-
-                        [https://www.saucedemo.com/](https://www.saucedemo.com/)
+                        - 測試網站:
+                            - [SauceDemo](https://www.saucedemo.com/): 一個電商示範網站，包含登入驗證、商品陳列、購物車和結帳的功能
+                            - 本機測試 App: 一個簡單的待辦事項清單網站，包含新增、刪除、編輯待辦事項的功能
                     </script>
                 </section>
             </section>
