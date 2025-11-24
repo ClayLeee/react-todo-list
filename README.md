@@ -21,12 +21,24 @@ $ npm install -g pnpm
 $ pnpm install
 ```
 
-c. 重跑測試 / 查看結果
+c. 重跑測試
 ```
 $ pnpm exec playwright test tests/{測試檔案名稱} --reporter=html
 ex: pnpm exec playwright test tests/saucedemo.spec.ts --reporter=html
 
+or
+// 已經配置在 package.json
+$ pnpm test
+
+```
+
+d. 查看結果
+```
 $ pnpm exec playwright show-report
+
+or
+// 已經配置在 package.json
+$ pnpm test:report
 ```
 
 ## 補充
