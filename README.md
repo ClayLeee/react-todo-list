@@ -23,9 +23,9 @@ $ pnpm dev
 這個專案是一個 todo list 的 App，包含日曆界面、todo list 的 CRUD 和本地儲存資料的功能，幫我用 @.github/prompt/playwright-manual-test-report.md 描述的指引探索此網站
 ```
 
-2. 等它完成測試檔案 (./tests/todo-app.spec.ts)
+3. 等它完成測試檔案 (./tests/todo-app.spec.ts)
 
-3. 查看測試結果 -> 在此專案根目錄下執行以下指令
+4. 查看測試結果 -> 在此專案根目錄下執行以下指令
 
 a. 重跑測試
 ```
