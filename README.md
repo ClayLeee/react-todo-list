@@ -18,7 +18,7 @@ c. 開啓專案
 $ pnpm dev
 ```
 
-2. 告訴你的 LLM 執行以下流程
+2. 告訴你的 Client 執行以下流程
 ```
 這個專案是一個 todo list 的 App，包含日曆界面、todo list 的 CRUD 和本地儲存資料的功能，幫我用 @.github/prompt/playwright-manual-test-report.md 描述的指引探索此網站
 ```
